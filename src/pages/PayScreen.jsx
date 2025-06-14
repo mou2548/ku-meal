@@ -1,7 +1,12 @@
 // PayScreen.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { supabase } from '../../utils/supabase'
 import { useNavigate } from 'react-router-dom';
+import GreenBar from '../components/GreenBar'
+import generatePayload from 'promptpay-qr';
+import QRCode from 'qrcode';
+
+
 
 const PayScreen = () => {
   const [paying, setPaying] = useState(false);
@@ -52,29 +57,70 @@ const PayScreen = () => {
     setPaying(false);
   };
 
+  {/* generate qr-code */}
+  const total = sampleOrder.items.reduce((sum, item) => sum + item.price, 0);
+  const [qrUrl, setQrUrl] = useState('');
+
+  useEffect(() => {
+      const payload = generatePayload('0931680267', { amount: total });
+      QRCode.toDataURL(payload)
+          .then(setQrUrl)
+          .catch(console.error);
+  }, [total]);
+
   return (
-    <div className="p-6 max-w-md mx-auto bg-white shadow rounded-lg">
-      <h1 className="text-2xl font-bold mb-4">Confirm Your Order</h1>
+    <>
+    <GreenBar />
+      <div className="min-h-screen bg-[#fdf7e3] flex items-start justify-center py-10 px-4">
+        <div className="bg-white rounded-3xl p-6 w-full max-w-md shadow-md">
+          <h1 className="text-2xl font-bold mb-4 border-b border-black pb-2">Confirm Your Order</h1>
+          <div className="space-y-2 mb-6"></div>
 
-      <ul className="space-y-2 mb-4">
-        {sampleOrder.items.map((item, idx) => (
-          <li key={idx} className="flex justify-between">
-            <span>{item.name}</span>
-            <span>{item.qty}x · ฿{item.price}</span>
-          </li>
-        ))}
-      </ul>
+          {/* List of foods */}
+          <ul className="space-y-2 mb-6">
+            {sampleOrder.items.map((item, idx) => (
+              <li key={idx} className="flex justify-between">
+                <span>{item.name}</span>
+                <span>{item.qty}x · ฿{item.price}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mb-4">Location: {sampleOrder.location}</p>
 
-      <p className="mb-4">Location: {sampleOrder.location}</p>
+          {/* underline */}
+          <hr className="border-t border-black mb-4" /> 
 
-      <button
-        onClick={handlePayment}
-        className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
-        disabled={paying}
-      >
-        {paying ? 'Processing...' : 'Pay & Get Queue Number'}
-      </button>
-    </div>
+          {/* Total */}
+          <div className="flex justify-between font-bold text-base">
+            <span>Total</span>
+            <span>฿{total}</span>
+          </div>
+          
+          {/* space */}
+          {/* <div className="flex flex-col sm:flex-row gap-3 mt-10" /> */}
+          
+          {/* attaching qr-code */}
+          {qrUrl && (
+              <div className="flex justify-center my-6">
+                  <img
+                      src={qrUrl}
+                      alt="PromptPay QR"
+                      className="w-80 h-80 object-contain"
+                  />
+              </div>
+          )}
+
+          {/* confirm button */}
+          <button
+            onClick={handlePayment}
+            className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition-colors w-full"
+            disabled={paying}
+          >
+            {paying ? 'Processing...' : 'Confirm'}
+          </button>
+        </div>
+      </div>
+    </>
   );
 };
 
