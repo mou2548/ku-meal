@@ -6,62 +6,62 @@ export default function App() {
     const cardData = [
         {
             title: 'โรงอาหารกลาง 1 (บาร์ใหม่)',
-            subtitle: 'จำนวนร้าน: 48',
+            subtitle: 'เวลาเปิด: 06.00 - 18.00น.',
             image: '/public/images/NewBar.jpg',
         },
         {
             title: 'โรงอาหารกลาง 2 (บาร์ใหม่กว่า)',
-            subtitle: 'จำนวนร้าน: 35',
+            subtitle: 'เวลาเปิด: 06.00 - 14.00น.',
             image: '/public/images/NewBar.jpg',
         },
         {
             title: 'โรงอาหารคณะวิศวกรรมศาสตร์',
-            subtitle: 'จำนวนร้าน: 20',
+            subtitle: 'เวลาเปิด: 05.30 - 18.00น.',
             image: '/public/images/NewBar.jpg',
         },
         {
             title: 'โรงอาหารคณะสัตวแพทยศาสตร์',
-            subtitle: 'จำนวนร้าน: 20',
+            subtitle: 'เวลาเปิด: 05.00 - 19.00น.',
             image: '/public/images/NewBar.jpg',
         },
         {            
             title: 'ห้องอาหารแก้วเกษตร',
-            subtitle: 'จำนวนร้าน: 20',
+            subtitle: 'เวลาเปิด: 08.30 - 14.00 น.',
             image: '/public/images/NewBar.jpg',
         },
         {
             title: 'โรงอาหารคณะบริหารธุรกิจ',
-            subtitle: 'จำนวนร้าน: 20',
+            subtitle: 'เวลาเปิด: 06.30 - 18.30 น.',
             image: '/public/images/NewBar.jpg',
         },
         {
             title: 'โรงอาหารคณะวิทยาศาสตร์',
-            subtitle: 'จำนวนร้าน: 20',
+            subtitle: 'เวลาเปิด: 06.30 - 17.00 น.',
             image: '/public/images/NewBar.jpg',
         },
         {
             title: 'โรงอาหารคณะเกษตร',
-            subtitle: 'จำนวนร้าน: 20',
+            subtitle: 'เวลาเปิด: 07.00 - 15.00 น.',
             image: '/public/images/NewBar.jpg',
         },
         {
             title: 'โรงอาหารคณะประมง',
-            subtitle: 'จำนวนร้าน: 20',
+            subtitle: 'เวลาเปิด: 06.00 - 14.00 น.',
             image: '/public/images/NewBar.jpg',
         },
         {
             title: 'ห้องอาหารสหโภชน์',
-            subtitle: 'จำนวนร้าน: 20',
+            subtitle: 'เวลาเปิด: 07.00 - 14.00 น.',
             image: '/public/images/NewBar.jpg',
         },
         {
             title: 'โรงอาหารคณะสถาปัตยกรรมศาสตร์',
-            subtitle: 'จำนวนร้าน: 20',
+            subtitle: 'เวลาเปิด: 05.00 - 18.00 น.',
             image: '/public/images/NewBar.jpg',
         },
         {
             title: 'โรงอาหารคณะวนศาสตร์',
-            subtitle: 'จำนวนร้าน: 20',
+            subtitle: 'เวลาเปิด: 06.00 - 15.00 น.',
             image: '/public/images/NewBar.jpg',
         },
     ];
@@ -90,11 +90,15 @@ export default function App() {
                 </div>
             </div>
 
-            {/* Cards or no-result message */}
+            {/* buttons or no-result message */}
             {filteredCards.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredCards.map((card, index) => (
-                        <div key={index} className="bg-green-400 rounded-xl p-4 flex items-center space-x-4 shadow-md">
+                        <button
+                            key={index}
+                            onClick={() => alert(`Clicked: ${card.title}`)}
+                            className="bg-emerald-500 rounded-xl p-4 flex items-center space-x-4 shadow-md hover:bg-emerald-600 transition-colors w-full text-left"
+                        >
                             <img
                                 src={card.image}
                                 alt={card.title}
@@ -108,7 +112,7 @@ export default function App() {
                                     {card.subtitle}
                                 </div>
                             </div>
-                        </div>
+                        </button>
                     ))}
                 </div>
             ) : (
