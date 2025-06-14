@@ -10,6 +10,7 @@ import Qr from './pages/QRCode'
 import QueueScreen from './pages/Queue'
 // import Shop from './pages/Shops'
 import PayScreen from './pages/PayScreen'
+import Cart from './pages/Cart'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/canteens" element={<Canteens />} />
         <Route path="/Qrcode" element={<Qr />} />
         {/* <Route path="/shop" element={<Shop />} /> */}
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </>
   );
