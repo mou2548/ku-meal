@@ -8,7 +8,7 @@ import Menu from './pages/Menu'
 import Canteens from './pages/Canteens'
 import Qr from './pages/QRCode'
 import QueueScreen from './pages/Queue'
-// import Shop from './pages/Shops'
+import Shops from './pages/Shops'
 import PayScreen from './pages/PayScreen'
 import Cart from './pages/Cart'
 
@@ -18,12 +18,12 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/menu" element={<Menu />} />
+        <Route path="/menu/:shopId" element={<Menu />} />
         <Route path="/payscreen" element={<PayScreen />} />
         <Route path="/queue/:queueNumber" element={<QueueScreen />} />
         <Route path="/canteens" element={<Canteens />} />
         <Route path="/Qrcode" element={<Qr />} />
-        {/* <Route path="/shop" element={<Shop />} /> */}
+        <Route path="/shops/:canteenId" element={<Shops />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
     </>
