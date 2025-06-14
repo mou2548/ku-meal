@@ -13,17 +13,17 @@ import Shop from './pages/Shops'
 
 function App() {
   return (
-    <>
+    <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/menu" element={<Menu />} />
+        <Route path="/" element={<PayScreen />} />
+        <Route path="/queue/:queueNumber" element={<QueueScreen />} />
         <Route path="/canteens" element={<Canteens />} />
         <Route path="/Qrcode" element={<Qr />} />
         <Route path="/queue" element={<Queue />} />
         <Route path="/shop" element={<Shop />} />
       </Routes>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
