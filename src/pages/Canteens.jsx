@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Search } from 'lucide-react';
 import GreenBar from '../components/GreenBar'
+import useNavigationHelper from "../components/NavigateHelper";
 
 export default function App() {
     const cardData = [
@@ -71,6 +72,7 @@ export default function App() {
     const filteredCards = cardData.filter((card) =>
         card.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
+    const goToPath = useNavigationHelper();
 
     return (
         <div className="min-h-screen bg-[#fdf7e3] p-4 md:p-8 flex flex-col">
@@ -89,14 +91,14 @@ export default function App() {
                     </div>
                 </div>
             </div>
-
+            
             {/* buttons or no-result message */}
             {filteredCards.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredCards.map((card, index) => (
-                        <button
+                        <button 
                             key={index}
-                            onClick={() => alert(`Clicked: ${card.title}`)}
+                            onClick={() => goToPath('../menu')}
                             className="bg-emerald-500 rounded-xl p-4 flex items-center space-x-4 shadow-md hover:bg-emerald-600 transition-colors w-full text-left"
                         >
                             <img

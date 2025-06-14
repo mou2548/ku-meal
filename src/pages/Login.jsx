@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import { useNavigate } from 'react-router-dom'
+import useNavigationHelper from "../components/NavigateHelper";
 export default function LoginWrapper() {
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -22,12 +23,17 @@ export default function LoginWrapper() {
 function Login({ onSuccess }) {
   const [account, setAccount] = useState("");
   const [password, setPassword] = useState("");
-
+  // const navigate = useNavigate()
+  const goToPath = useNavigationHelper();
   const handleSubmit = (e) => {
     e.preventDefault();
     // เทียบกับข้อมูลที่กำหนดไว้ล่วงหน้า
     if (account === "admin" && password === "1234") {
       alert("เข้าสู่ระบบได้");
+      goToPath('./canteens')
+      //   // Normally you'd validate login here
+        // navigate('/menu') // move to Menu page
+      // // }
       onSuccess();
     } else {
       alert("บัญชีผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
