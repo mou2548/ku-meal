@@ -10,13 +10,16 @@ import Shops from './pages/Shops'
 import PayScreen from './pages/PayScreen'
 import Cart from './pages/Cart'
 import CartIcon from './pages/CartIcon';
+import HomeButton from './pages/HomeButton';
 import { CartProvider } from './contexts/CartContext';
+import Orders from './pages/Orders';
 
 
 function App() {
   return (
     <CartProvider>
-      <CartIcon /> 
+      <CartIcon />
+      <HomeButton /> 
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/menu/:shopId" element={<Menu />} />
@@ -26,6 +29,7 @@ function App() {
         <Route path="/Qrcode" element={<Qr />} />
         <Route path="/shops/:canteenId" element={<Shops />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/orders/shop/:shopId" element={<Orders />} />
       </Routes>
     </CartProvider>
   );
