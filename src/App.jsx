@@ -1,6 +1,6 @@
 import './App.css'
 
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation} from 'react-router-dom'
 import Login from './pages/Login'
 import Menu from './pages/Menu'
 import Canteens from './pages/Canteens'
@@ -16,10 +16,14 @@ import Orders from './pages/Orders';
 
 
 function App() {
-  return (
+
+  const location = useLocation();
+  const isLoginPage = location.pathname === '/';
+
+  return (  
     <CartProvider>
-      <CartIcon />
-      <HomeButton /> 
+      {!isLoginPage && <CartIcon />}
+      {!isLoginPage && <HomeButton />}
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/menu/:shopId" element={<Menu />} />
@@ -31,6 +35,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/orders/shop/:shopId" element={<Orders />} />
       </Routes>
+      
     </CartProvider>
   );
 }
