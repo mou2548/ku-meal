@@ -58,7 +58,7 @@ const Menu = () => {
 
   return (
     <><GreenBar/>
-    <div className="min-h-screen bg-[#FEF9F3] p-4">
+    <div className="min-h-screen bg-[#fdf7e3] p-4 md:p-8 flex flex-col">
       
 
       <div className="mt-4 flex items-center bg-white rounded-full shadow px-4 py-2">
