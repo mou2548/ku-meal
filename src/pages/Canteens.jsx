@@ -65,8 +65,9 @@ export default function Canteens() {
       ) : (
         <p className="text-gray-600 text-center mt-10">ไม่พบโรงอาหารที่ตรงกับคำค้น</p>
       )}
+      
     </div>
-    <span className="text-xs text-gray-600 opacity-75 flex">ภาพจาก Facebook page Kasetsart University</span>
+    <span className="bg-[#fdf7e3] justify-center text-center text-xs text-gray-600 opacity-75 flex">ภาพจาก Facebook page Kasetsart University</span>
     </>
   );
 }
