@@ -55,8 +55,9 @@ const Menu = () => {
   );
 
   return (
+    <><GreenBar/>
     <div className="min-h-screen bg-[#FEF9F3] p-4">
-      <GreenBar />
+      
 
       <div className="mt-4 flex items-center bg-white rounded-full shadow px-4 py-2">
         <input
@@ -112,6 +113,7 @@ const Menu = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 
