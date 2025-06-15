@@ -1,12 +1,53 @@
-# React + Vite
+# KU-Meal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+KU-Meal is a web-based food ordering system designed for Kasetsart University canteens. Built with React, Tailwind CSS, and Supabase, it allows students to browse shops, add items to cart, pay via PromptPay, and queue up for pickup. Shop owners can also monitor incoming orders.
 
-Currently, two official plugins are available:
+## 🛠️ Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| Layer       | Technology       |
+|-------------|------------------|
+| Frontend    | React + Vite     |
+| Styling     | Tailwind CSS     |
+| Backend     | Supabase (PostgreSQL + Auth + Storage) |
+| Hosting     | Vercel           |
 
-## Expanding the ESLint configuration
+## 📦 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🔒 Nontri Account Login system (coming soon)
+- 🍽️ Browse canteens and shops
+- 🛒 Cart with item quantity & price tracking
+- 📲 PromptPay QR code payment
+- ⏳ Queue number generation
+- 🧾 Order tracking for shop owners
+- 📱 Responsive design for mobile/desktop
+
+## 🚀 Getting Started
+
+### 1. Clone the Repo
+
+```bash
+git clone https://github.com/your-username/ku-meal.git
+cd ku-meal
+```
+
+### 2. Install Dependencies
+```bash
+Copy
+Edit
+npm install
+```
+
+### 3. Setup Environment Variables
+Create a .env file in the root:
+
+```
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key
+```
+
+### 4. Run the App Locally
+```bash
+npm run dev
+```
+
+MIT License © 2025 Patiphat Moungmaithong
