@@ -19,7 +19,7 @@ function App() {
   return (
     <CartProvider>
       <CartIcon />
-      <HomeButton /> 
+      <HomeButton />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/menu/:shopId" element={<Menu />} />
