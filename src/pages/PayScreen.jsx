@@ -68,6 +68,7 @@ const PayScreen = () => {
         .from('orders')
         .insert([
           {
+            shop_id: shopId,
             location: locationName,
             items: cartItems.map(({ id, name, quantity, price }) => ({
               id,

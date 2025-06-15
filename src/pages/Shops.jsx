@@ -55,22 +55,34 @@ export default function Shops() {
             {filteredShops.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredShops.map((shop) => (
-                        <button
-                            key={shop.id}
-                            onClick={() => navigate(`../menu/${shop.id}`)}
-                            className="bg-emerald-500 rounded-xl p-4 flex items-center space-x-4 shadow-md hover:bg-emerald-600 transition-colors w-full text-left"
-                        >
-                            <img
-                                src="/images/NewBar.jpg"
-                                alt={shop.name}
-                                className="w-16 h-16 rounded-md object-cover flex-shrink-0"
-                            />
-                            <div className="text-black flex-1">
-                                <div className="font-bold text-sm sm:text-base md:text-lg">
-                                    {shop.name}
+                        <div key={shop.id} className="bg-white rounded-xl p-4 shadow-md flex flex-col space-y-4">
+                            <div className="flex items-center space-x-4">
+                                <img
+                                    src="/images/NewBar.jpg"
+                                    alt={shop.name}
+                                    className="w-16 h-16 rounded-md object-cover flex-shrink-0"
+                                />
+                                <div className="text-black flex-1">
+                                    <div className="font-bold text-sm sm:text-base md:text-lg">
+                                        {shop.name}
+                                    </div>
                                 </div>
                             </div>
-                        </button>
+                            <div className="flex space-x-2">
+                                <button
+                                    onClick={() => navigate(`/menu/${shop.id}`)}
+                                    className="flex-1 bg-emerald-500 text-white rounded-md py-2 hover:bg-emerald-600 transition"
+                                >
+                                    View Menu
+                                </button>
+                                <button
+                                    onClick={() => navigate(`/orders/shop/${shop.id}`)}
+                                    className="flex-1 bg-blue-500 text-white rounded-md py-2 hover:bg-blue-600 transition"
+                                >
+                                    View Orders
+                                </button>
+                            </div>
+                        </div>
                     ))}
                 </div>
             ) : (
