@@ -39,11 +39,11 @@ export default function Shops() {
             {/* Search bar */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
                 <div className="col-span-1 sm:col-span-2 lg:col-span-3">
-                    <div className="flex items-center bg-gray-200 rounded-full px-4 py-3 shadow-sm w-full">
+                    <div className="flex items-center bg-white rounded-full px-4 py-3 shadow w-full">
                         <Search className="w-5 h-5 text-gray-600 mr-3" />
                         <input
                             type="text"
-                            placeholder="ค้นหาร้านค้า"
+                            placeholder="ค้นหาร้านค้า..."
                             className="bg-transparent focus:outline-none w-full text-gray-700 text-sm md:text-base"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}

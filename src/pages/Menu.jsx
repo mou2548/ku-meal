@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import GreenBar from '../components/GreenBar';
 import { supabase } from '../../utils/supabase';
 import { useCart } from '../contexts/CartContext';
+import { Search } from 'lucide-react';
+
 
 const Menu = () => {
   const { shopId } = useParams();
@@ -56,14 +58,15 @@ const Menu = () => {
 
   return (
     <><GreenBar/>
-    <div className="min-h-screen bg-[#FEF9F3] p-4">
+    <div className="min-h-screen bg-[#fdf7e3] p-4 md:p-8 flex flex-col">
       
 
       <div className="mt-4 flex items-center bg-white rounded-full shadow px-4 py-2">
+        <Search className="w-5 h-5 text-gray-600 mr-3" />
         <input
           type="text"
           className="flex-grow outline-none text-gray-700 placeholder-gray-400"
-          placeholder="ค้นหาเมนู"
+          placeholder="ค้นหาเมนู..."
           value={search}
           onChange={e => setSearch(e.target.value)}
         />
