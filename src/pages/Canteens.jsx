@@ -23,8 +23,9 @@ export default function Canteens() {
   );
 
   return (
+    <><GreenBar />
     <div className="min-h-screen bg-[#fdf7e3] p-4 md:p-8 flex flex-col">
-      <GreenBar />
+      
 
       {/* Search bar */}
       <div className="mb-6">
@@ -65,5 +66,6 @@ export default function Canteens() {
         <p className="text-gray-600 text-center mt-10">ไม่พบโรงอาหารที่ตรงกับคำค้น</p>
       )}
     </div>
+    </>
   );
 }
